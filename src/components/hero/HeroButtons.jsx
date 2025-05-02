@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 import Button from '../common/Button';
+import resumePDF from '../../assets/SN_UPDATED.pdf';
+
 
 const HeroButtons = ({ className = '', themeMode }) => {
   return (
@@ -24,7 +26,7 @@ const HeroButtons = ({ className = '', themeMode }) => {
       </Button>
       
       <Button 
-        href="src/assets/SN_UPDATED.pdf"
+        href={resumePDF}
         target="_blank"
         rel="noopener noreferrer"
         variant="outline"
