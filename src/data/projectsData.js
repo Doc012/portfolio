@@ -26,7 +26,7 @@ Built with Java (Spring Boot), MySQL, and React, RepairLink focuses on deliverin
     learningOutcomes: "This project helped me gain real-world experience in structuring a full-stack application, implementing secure role-based access, and building REST APIs that support real user workflows.",
     githubUrl: "https://github.com/Doc012/RepairLink",
     demoUrl: "https://ecommerce-demo.example.com",
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Replace with actual embed URL
+    videoUrl: "https://www.youtube-nocookie.com/embed/Iqr3XIhSnUQ?si=52Zmo6JGGDJvRgAr",
     featured: true,
     isNew: false,
     status: "completed",
