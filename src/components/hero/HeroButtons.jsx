@@ -24,7 +24,7 @@ const HeroButtons = ({ className = '', themeMode }) => {
       </Button>
       
       <Button 
-        href="/src/assets/SN_UPDATED.pdf"
+        href="src/assets/SN_UPDATED.pdf"
         target="_blank"
         rel="noopener noreferrer"
         variant="outline"
