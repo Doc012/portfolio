@@ -67,7 +67,21 @@ const Navbar = ({ toggleTheme, themeMode }) => {
   // Handle navigation click
   const handleNavClick = (sectionId) => {
     setIsMenuOpen(false);
-    scrollToSection(sectionId);
+    
+    // Added small timeout to ensure menu closes before scrolling
+    setTimeout(() => {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        // Manual scroll implementation that works on all devices
+        window.scrollTo({
+          top: section.offsetTop - 80, // Offset for the navbar height
+          behavior: 'smooth'
+        });
+      }
+      
+      // Also update the active section in context
+      scrollToSection(sectionId);
+    }, 100);
   };
 
   // Modern theme-specific styles
