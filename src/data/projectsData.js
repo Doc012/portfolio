@@ -7,7 +7,7 @@ const projectsData = [
 
 Built with Java (Spring Boot), MySQL, and React, RepairLink focuses on delivering a practical and intuitive experience for real-world booking scenarios. It uses secure, role-based access control to ensure users interact only with features relevant to their role.`,
     // This image is working fine
-    image: "public/repairlink/RepairLink.png",
+    image: "https://sn-pcs.netlify.app/repairlink/RepairLink.png",
     technologies: ["Java", "Spring Boot", "React", "MySQL", "Docker", "Redis", "Tailwind CSS"],
     features: [
       "Role-based login system for customers and service providers",
@@ -33,10 +33,10 @@ Built with Java (Spring Boot), MySQL, and React, RepairLink focuses on deliverin
     lastUpdated: "April 2025",
     codeSize: "15K+ lines",
     screenshots: [
-      { image: "src/assets/repairlink/homepage.png", caption: "Homepage" },
-      { image: "src/assets/repairlink/services.png", caption: "Services Page" },
-      { image: "src/assets/repairlink/customer.png", caption: "Customer Dashboard" },
-      { image: "src/assets/repairlink/vendor.png", caption: "Vendor Dashboard" }
+      { image: "https://sn-pcs.netlify.app/repairlink/homepage.png", caption: "Homepage" },
+      { image: "https://sn-pcs.netlify.app/repairlink/services.png", caption: "Services Page" },
+      { image: "https://sn-pcs.netlify.app/repairlink/customer.png", caption: "Customer Dashboard" },
+      { image: "https://sn-pcs.netlify.app/repairlink/vendor.png", caption: "Vendor Dashboard" }
     ],
     inProgress: false
   },
@@ -47,7 +47,7 @@ Built with Java (Spring Boot), MySQL, and React, RepairLink focuses on deliverin
     description: `RepairLink v1.2 is a major upgrade focused on improving the platform’s usability, admin functionality, and user communication. This version is all about enhancing real-world functionality with smarter scheduling, richer user experiences, and professional interactions across the platform.
   
   The update introduces an admin dashboard, better vendor insights, smarter time slot handling, and a more refined UI/UX throughout all dashboards. These improvements aim to make the platform more production-ready and scalable.`,
-    image: "src/assets/repairlink/In Progress.png", // Replace with your actual image path
+    image: "https://sn-pcs.netlify.app/repairlink/In%20Progress.png", // Replace with your actual image path
     technologies: ["Java", "Spring Boot", "React", "MySQL", "Redis", "Tailwind CSS", "Cloudinary", "Google Maps API"],
     
     improvements: [
@@ -91,7 +91,7 @@ Built with Java (Spring Boot), MySQL, and React, RepairLink focuses on deliverin
     description: `RepairLink v1.3 is the next planned evolution of the platform, focused on enhancing communication between customers and service providers. This version aims to introduce a real-time messaging system, improve visibility into booking statuses, and bring advanced interactivity to the platform.
   
   The goal is to create a more connected experience by allowing direct chat within dashboards, tracking service provider availability in real time, and improving the way users engage before and after a booking.`,
-    image: "src/assets/repairlink/Comming soon.png",
+    image: "https://sn-pcs.netlify.app/repairlink/Comming%20soon.png",
     technologies: [
       "Java", 
       "Spring Boot", 

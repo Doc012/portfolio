@@ -147,7 +147,7 @@ const HeroSection = ({ themeMode }) => {
             >
               <div className="relative inline-block">
                 <img 
-                  src="/src/assets/2.jpg" 
+                  src="https://sn-pcs.netlify.app/2.jpg" 
                   alt="Siphamandla Ngcepe" 
                   className={`w-32 h-32 rounded-full object-cover border-4 ${profileBorderColor}`}
                 />
@@ -286,7 +286,7 @@ const HeroSection = ({ themeMode }) => {
               <div className="relative">
                 <div className={`w-72 h-72 rounded-2xl overflow-hidden border-4 ${profileBorderColor} shadow-xl`}>
                   <img 
-                    src="/src/assets/2.jpg" 
+                    src="https://sn-pcs.netlify.app/2.jpg" 
                     alt="Siphamandla Ngcepe"
                     className="w-full h-full object-cover"
                   />
