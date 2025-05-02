@@ -7,7 +7,7 @@ const projectsData = [
 
 Built with Java (Spring Boot), MySQL, and React, RepairLink focuses on delivering a practical and intuitive experience for real-world booking scenarios. It uses secure, role-based access control to ensure users interact only with features relevant to their role.`,
     // This image is working fine
-    image: "src/assets/repairlink/RepairLink.png",
+    image: "/assets/repairlink/RepairLink.png",
     technologies: ["Java", "Spring Boot", "React", "MySQL", "Docker", "Redis", "Tailwind CSS"],
     features: [
       "Role-based login system for customers and service providers",
