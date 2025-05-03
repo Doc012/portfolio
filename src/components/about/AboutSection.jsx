@@ -585,7 +585,7 @@ const AboutSection = ({ themeMode }) => {
           </motion.div>
 
           {/* Add CSS for the grid pattern */}
-          <style jsx>{`
+          <style>{`
             .bg-grid-pattern {
               background-image: radial-gradient(
                 circle,

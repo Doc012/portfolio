@@ -199,15 +199,10 @@ const HeroSection = ({ themeMode }) => {
             >
               <span>Aspiring{" "}</span>
               <span 
-                className="relative inline-flex items-center" 
+                className="relative inline-flex items-center w-auto max-w-full min-w-[300px] md:min-w-[380px] lg:min-w-[450px]" 
                 style={{ 
-                  minWidth: '300px',
-                  width: 'auto',
-                  maxWidth: '100%',
                   minHeight: '1.5em',
-                  lineHeight: '1.5em', // Ensures consistent line height
-                  '@media (min-width: 768px)': { minWidth: '380px' },
-                  '@media (min-width: 1024px)': { minWidth: '450px' }
+                  lineHeight: '1.5em' // Ensures consistent line height
                 }}
               >
                 <TypingEffect 

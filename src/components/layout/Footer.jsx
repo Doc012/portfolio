@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { SOCIAL_LINKS } from '../../utils/constants';
 import { useState, useEffect } from 'react';
+import { db, collection, setDoc, doc, serverTimestamp, getDoc } from '../../firebase/firebase'; // adjust the path if needed
 import { 
   FaGithub, 
   FaLinkedinIn, 
@@ -8,7 +9,100 @@ import {
 } from 'react-icons/fa';
 
 const Footer = ({ themeMode }) => {
+  const [email, setEmail] = useState('');
+  const [status, setStatus] = useState('idle');
+  const [validationError, setValidationError] = useState('');
   const currentYear = new Date().getFullYear();
+  
+  // Custom email validation function with comprehensive regex
+  const isValidEmail = (email) => {
+    // RFC 5322 compliant regex for email validation
+    const regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return regex.test(email);
+  };
+  
+  const handleSubscribe = async () => {
+    // Reset validation error
+    setValidationError('');
+    
+    // Validate email
+    if (!email) {
+      setValidationError('Please enter your email address.');
+      return;
+    }
+    
+    if (!isValidEmail(email)) {
+      setValidationError('Please enter a valid email address.');
+      return;
+    }
+
+    const cleanEmail = email.trim().toLowerCase();
+    setStatus('loading');
+    
+    try {
+      // Use the email as the document ID to enforce uniqueness
+      const docRef = doc(collection(db, "subscribers"), cleanEmail);
+      
+      // Use setDoc with {merge: false} to fail if it already exists
+      await setDoc(docRef, {
+        email: cleanEmail,
+        timestamp: serverTimestamp()
+      }, { merge: false });
+      
+      console.log("Email added successfully");
+      setStatus('success');
+      setEmail('');
+    } catch (err) {
+      console.error("Subscription error:", err.code, err.message);
+      
+      // Handle specific error types
+      if (err.code === 'permission-denied') {
+        // This could be a duplicate email, check if the document exists
+        try {
+          const docSnapshot = await getDoc(doc(collection(db, "subscribers"), cleanEmail));
+          if (docSnapshot.exists()) {
+            console.log("Email already exists");
+            setStatus('exists');
+          } else {
+            setStatus('permission-error');
+          }
+        } catch (innerErr) {
+          console.error("Error checking document existence:", innerErr);
+          setStatus('permission-error');
+        }
+      } else {
+        setStatus('error');
+      }
+    }
+  };
+  
+  // Reset status when email changes
+  useEffect(() => {
+    // Only reset status if the user starts typing AFTER a success/error
+    if (status !== 'idle' && status !== 'loading' && status !== 'success') {
+      setStatus('idle');
+    }
+    
+    if (validationError) {
+      setValidationError('');
+    }
+  }, [email]);
+
+  // Add a separate timeout for success messages
+  useEffect(() => {
+    // Create a timeout to clear success message after 5 seconds
+    let successTimeout;
+    if (status === 'success') {
+      successTimeout = setTimeout(() => {
+        setStatus('idle');
+      }, 5000); // 5 seconds
+    }
+    
+    // Clean up timeout
+    return () => {
+      if (successTimeout) clearTimeout(successTimeout);
+    };
+  }, [status]);
   
   // Map social icons to React components
   const getSocialIcon = (iconName) => {
@@ -80,25 +174,52 @@ const Footer = ({ themeMode }) => {
                   Stay updated with my latest projects
                 </h3>
                 <p className={`${themeMode === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>
-                  I'm currently building my newsletter. Keep an eye out for this feature coming soon!
+                  Subscribe to my newsletter to receive updates on new projects, tech insights, and career opportunities.
                 </p>
               </div>
               <div className="lg:w-5/12 lg:flex-shrink-0 lg:pl-6">
                 <div className="flex items-center">
+                  <input
+                    type="email"
+                    placeholder="Enter your email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className={`flex-1 px-4 py-2.5 rounded-l-lg border focus:outline-none ${
+                      themeMode === 'dark'
+                        ? 'bg-gray-700/60 border-gray-600 text-white'
+                        : 'bg-gray-100 border-gray-300 text-gray-700'
+                    } ${validationError ? (themeMode === 'dark' ? 'border-red-500/70' : 'border-red-500') : ''}`}
+                  />
                   <button
-                    disabled={true}
-                    className={`flex-1 px-4 py-2.5 rounded-l-lg border ${themeMode === 'dark' ? 'bg-gray-700/60 border-gray-600 text-gray-400' : 'bg-gray-100 border-gray-300 text-gray-500'} focus:outline-none`}
+                    onClick={handleSubscribe}
+                    disabled={status === 'loading'}
+                    className={`px-5 py-2.5 rounded-r-lg font-medium ${
+                      themeMode === 'dark'
+                        ? 'bg-emerald-600 hover:bg-emerald-700 text-white'
+                        : 'bg-emerald-500 hover:bg-emerald-600 text-white'
+                    } ${status === 'loading' ? 'opacity-75 cursor-not-allowed' : ''}`}
                   >
-                    Coming Soon
-                  </button>
-                  <button
-                    disabled={true}
-                    className={`px-5 py-2.5 rounded-r-lg font-medium ${themeMode === 'dark' ? 'bg-gray-700 text-gray-400 border border-gray-600' : 'bg-gray-200 text-gray-500 border border-gray-300'}`}
-                  >
-                    Subscribe
+                    {status === 'loading' ? 'Subscribing...' : 'Subscribe'}
                   </button>
                 </div>
+                
+                {validationError && (
+                  <p className="text-sm mt-2 text-red-500">{validationError}</p>
+                )}
+                {status === 'success' && (
+                  <p className="text-sm mt-2 text-emerald-500">Thanks for subscribing!</p>
+                )}
+                {status === 'error' && (
+                  <p className="text-sm mt-2 text-red-500">Something went wrong. Please try again later.</p>
+                )}
+                {status === 'permission-error' && (
+                  <p className="text-sm mt-2 text-red-500">Unable to subscribe due to a permissions issue. Please try again later.</p>
+                )}
+                {status === 'exists' && (
+                  <p className="text-sm mt-2 text-amber-500">You already subscribed to my newsletter with this email.</p>
+                )}
               </div>
+
             </div>
           </motion.div>
         </div>

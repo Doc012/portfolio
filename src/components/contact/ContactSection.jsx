@@ -277,7 +277,7 @@ const ContactSection = ({ themeMode }) => {
           
           {/* FAQ Section */}
           <motion.div 
-            variants={fadeIn('up', 5)} 
+            variants={fadeIn('up', 2)}
             className="mt-16 max-w-3xl mx-auto"
           >
             <div className={`rounded-xl overflow-hidden ${cardBg} shadow-lg`}>

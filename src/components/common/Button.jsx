@@ -14,6 +14,7 @@ const Button = ({
   withArrow = false,
   as, // Add as prop to allow rendering as different elements
   icon, // Add icon prop to handle icon buttons more easily
+  fullWidth, // Extract fullWidth prop
   ...props 
 }) => {
   // Define variants based on theme with emerald/teal colors
@@ -64,9 +65,12 @@ const Button = ({
   const disabledClasses = disabled 
     ? "opacity-60 cursor-not-allowed saturate-50"
     : "transform hover:-translate-y-0.5 active:translate-y-0";
+    
+  // Full width option
+  const fullWidthClass = fullWidth ? "w-full" : "";
   
   // Combine all classes
-  const buttonClasses = `${baseClasses} ${variants[variant]} ${sizes[size]} ${focusRing} ${disabledClasses} ${className}`;
+  const buttonClasses = `${baseClasses} ${variants[variant]} ${sizes[size]} ${focusRing} ${disabledClasses} ${fullWidthClass} ${className}`;
   
   // Arrow icon for buttons that need it
   const ArrowIcon = () => (
@@ -107,9 +111,6 @@ const Button = ({
     }
   };
 
-  // Determine which element to render
-  const Component = as || (href ? motion.a : motion.button);
-
   // Content to be rendered inside the button/link
   const content = (
     <>
@@ -119,22 +120,37 @@ const Button = ({
     </>
   );
 
-  // Common props for all button types
-  const commonProps = {
-    className: `${buttonClasses} group`,
+  // Extract Framer Motion specific props to avoid DOM warnings
+  const motionProps = !disabled ? {
     initial: "initial",
-    whileHover: !disabled ? "hover" : "initial",
-    whileTap: !disabled ? "tap" : "initial",
+    whileHover: "hover",
+    whileTap: "tap",
     variants: buttonVariants,
+  } : {};
+  
+  // Handle non-motion props separately
+  const domProps = {
+    className: `${buttonClasses} group`,
+    ...(href && { href }),
+    ...(!as && !href && { type, disabled, onClick }),
     ...props
   };
+
+  // Remove any motion-specific props from regular props to avoid warnings
+  delete domProps.initial;
+  delete domProps.whileHover;
+  delete domProps.whileTap;
+  delete domProps.variants;
+  delete domProps.fullWidth;
+
+  // Determine which element to render
+  const Component = as || (href ? motion.a : motion.button);
 
   // Render the appropriate component based on as, href, or default
   return (
     <Component 
-      {...commonProps}
-      {...(href && { href })}
-      {...(!as && !href && { type, disabled, onClick })}
+      {...domProps}
+      {...motionProps}
     >
       {content}
     </Component>
