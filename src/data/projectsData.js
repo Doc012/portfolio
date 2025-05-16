@@ -51,11 +51,11 @@ Built with Java (Spring Boot), MySQL, and React, RepairLink focuses on deliverin
     technologies: ["Java", "Spring Boot", "React", "MySQL", "Redis", "Tailwind CSS", "Cloudinary", "Google Maps API"],
     
     improvements: [
-      "Adding an admin dashboard for system oversight and platform control",
-      "Adding a dedicated reviews page for vendors to view customer feedback",
-      "Enhancing vendor profiles with email and website details",
+      "Adding an admin dashboard for system oversight and platform control✅",
+      "Adding a dedicated reviews page for vendors to view customer feedback✅",
+      "Enhancing vendor profiles with email and website details ✅",
       "Displaying only available time slots during booking (excluding booked times)",
-      "Adding booking history pages for customers and vendors",
+      "Adding booking history pages for customers and vendors✅",
       "Improving UI/UX across all dashboards for better usability",
       "Refactoring and cleaning up frontend code for performance and maintainability"
     ],
@@ -77,7 +77,7 @@ Built with Java (Spring Boot), MySQL, and React, RepairLink focuses on deliverin
     featured: true,
     isNew: true,
     status: "in-progress",
-    lastUpdated: "April 2025",
+    lastUpdated: "May 2025",
     codeSize: "20K+ lines",
     screenshots: [
   
