@@ -16,19 +16,19 @@ export const NAV_LINKS = [
 export const SOCIAL_LINKS = [
   {
     name: 'GitHub',
-    url: 'https://github.com/yourusername',
+    url: 'https://github.com/Doc012',
     icon: 'github',
     color: '#333'
   },
   {
     name: 'LinkedIn',
-    url: 'https://linkedin.com/in/yourusername',
+    url: 'www.linkedin.com/in/siphamandla-ngcepe-a690ab20b',
     icon: 'linkedin',
     color: '#0077B5'
   },
   {
     name: 'Email',
-    url: 'mailto:your.email@example.com',
+    url: 'sphashepherd@gmail.com',
     icon: 'mail',
     color: '#D44638'
   }
