@@ -15,6 +15,7 @@ const AboutSection = lazy(() => import('./components/about/AboutSection'));
 const JourneySection = lazy(() => import('./components/journey/JourneySection'));
 const TechStackSection = lazy(() => import('./components/techstack/TechStackSection'));
 const ProjectsSection = lazy(() => import('./components/projects/ProjectsSection'));
+const AchievementsSection = lazy(() => import('./components/achievements/AchievementsSection'));
 const ContactSection = lazy(() => import('./components/contact/ContactSection'));
 
 // Utilities
@@ -289,10 +290,24 @@ export default function App() {
                 </Suspense>
               </motion.section>
               
-              {/* Contact section - odd section */}
+              {/* Achievements section - odd section */}
+              <motion.section 
+                id="achievements" 
+                className={`${oddSectionBg} ${sectionBorder} relative`}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true, margin: "-100px" }}
+              >
+                <Suspense fallback={<SectionLoader themeMode={themeMode} />}>
+                  <AchievementsSection themeMode={themeMode} />
+                </Suspense>
+              </motion.section>
+              
+              {/* Contact section - now even section */}
               <motion.section 
                 id="contact" 
-                className={`${oddSectionBg} ${sectionBorder} relative`}
+                className={`${evenSectionBg} ${sectionBorder} relative`}
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ duration: 0.5 }}

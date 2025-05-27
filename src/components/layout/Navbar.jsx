@@ -105,6 +105,16 @@ const Navbar = ({ toggleTheme, themeMode }) => {
     ? 'bg-gray-800/70 text-gray-300 hover:text-emerald-400 hover:bg-gray-800'
     : 'bg-gray-200/70 text-gray-700 hover:text-emerald-700 hover:bg-gray-200';
 
+  const navItems = [
+    { label: 'Home', href: '#home' },
+    { label: 'About', href: '#about' },
+    { label: 'Journey', href: '#journey' },
+    { label: 'Tech Stack', href: '#tech-stack' },
+    { label: 'Projects', href: '#projects' },
+    { label: 'Achievements', href: '#achievements' },
+    { label: 'Contact', href: '#contact' },
+  ];
+
   return (
     <motion.header
       initial={{ y: -100 }}
@@ -138,7 +148,7 @@ const Navbar = ({ toggleTheme, themeMode }) => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-1">
-            {NAV_LINKS.map((link) => (
+            {navItems.map((link) => (
               <motion.a
                 key={link.href}
                 href={link.href}
@@ -155,7 +165,7 @@ const Navbar = ({ toggleTheme, themeMode }) => {
                 }`}
               >
                 {link.icon && <span className="mr-1.5"><NavIcon name={link.icon} /></span>}
-                {link.name}
+                {link.label}
                 {activeSection === link.href.substring(1) && (
                   <motion.span
                     layoutId="nav-indicator"
@@ -234,7 +244,7 @@ const Navbar = ({ toggleTheme, themeMode }) => {
         }`}
       >
         <div className="px-4 py-3 space-y-2">
-          {NAV_LINKS.map((link) => (
+          {navItems.map((link) => (
             <motion.a
               key={link.href}
               href={link.href}
@@ -250,7 +260,7 @@ const Navbar = ({ toggleTheme, themeMode }) => {
               }`}
             >
               {link.icon && <span className="w-6 h-6 mr-3"><NavIcon name={link.icon} /></span>}
-              {link.name}
+              {link.label}
               {activeSection === link.href.substring(1) && (
                 <motion.span
                   layoutId="mobile-nav-indicator"
