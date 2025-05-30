@@ -6,7 +6,7 @@ const projectsData = [
     description: `Together As One is a community-focused platform designed to address water crises in South Africa by connecting people who need water with those who have resources to share. The platform emerged as a grassroots response to water outages and shortages that affect many South African communities.
     
     The application enables residents with boreholes or other water sources to connect with neighbors experiencing water shortages, fostering community resilience and solidarity during infrastructure challenges.`,
-    image: "/src/assets/home.png",
+    image: "https://sn-pcs.netlify.app/tao/home.png",
     technologies: ["React", "Tailwind CSS", "React Router", "Context API", "Responsive Design", "Netlify"],
     features: [
       "Water Sharing Network: Connects residents with water resources to those in need",
