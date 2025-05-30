@@ -32,31 +32,26 @@ const ProjectShowcase = ({ themeMode, projectsData }) => {
   };
 
   // Theme-specific styles
-  const cardBg = themeMode === 'dark'
-    ? 'bg-gray-800/50 backdrop-blur-sm border border-gray-700/80'
-    : 'bg-white/70 backdrop-blur-sm border border-gray-200/80';
-    
-  const titleColor = themeMode === 'dark'
-    ? 'text-white'
-    : 'text-gray-800';
-    
-  const descriptionColor = themeMode === 'dark'
-    ? 'text-gray-300'
-    : 'text-gray-600';
-    
-  const cardHoverEffect = themeMode === 'dark'
-    ? 'hover:border-emerald-600/30 hover:shadow-xl hover:shadow-emerald-800/10'
-    : 'hover:border-emerald-400/30 hover:shadow-xl hover:shadow-emerald-300/20';
-    
-  const techBadgeBg = themeMode === 'dark'
-    ? 'bg-gray-700/80 text-emerald-300' 
-    : 'bg-gray-100/80 text-emerald-700';
+  const cardBg = themeMode === 'dark' ? 'bg-gray-800/80' : 'bg-white';
+  const cardHoverEffect = themeMode === 'dark' 
+    ? 'hover:bg-gray-700/90 hover:shadow-emerald-900/20' 
+    : 'hover:bg-gray-50 hover:shadow-emerald-500/30';
+  const titleColor = themeMode === 'dark' ? 'text-white' : 'text-gray-800';
+  const descriptionColor = themeMode === 'dark' ? 'text-gray-300' : 'text-gray-600';
+  const techBadgeBg = themeMode === 'dark' ? 'bg-gray-700 text-gray-200' : 'bg-gray-200 text-gray-700';
 
   return (
     <div className="mb-8">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 mb-6">
         {projectsData.map((project, index) => {
           const statusDetails = getStatusDetails(project.status);
+          
+          // Check if this is the social impact project
+          const isSocialImpact = project.id === "together-as-one";
+          
+          // Custom styling for social impact project
+          const cardClasses = `${cardBg} ${cardHoverEffect} rounded-xl overflow-hidden shadow-lg h-full flex flex-col transition-all duration-300 relative`;
+            
           return (
             <motion.div
               key={project.id}
@@ -64,7 +59,7 @@ const ProjectShowcase = ({ themeMode, projectsData }) => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className={`${cardBg} ${cardHoverEffect} rounded-xl overflow-hidden shadow-lg h-full flex flex-col transition-all duration-300 relative`}
+              className={cardClasses}
               whileHover={{ y: -5 }}
             >
               {/* Project Image */}
@@ -87,6 +82,20 @@ const ProjectShowcase = ({ themeMode, projectsData }) => {
                     {statusDetails.badgeText}
                   </div>
                 </div>
+                
+                {/* Social Impact badge - only for Together As One */}
+                {isSocialImpact && (
+                  <div className="absolute top-3 left-3">
+                    <div className={`
+                      px-3 py-1 rounded-full text-xs font-medium shadow-md
+                      ${themeMode === 'dark' ? 'bg-blue-600/90' : 'bg-blue-500/90'} text-white
+                      flex items-center gap-1
+                    `}>
+                      <span className="w-1.5 h-1.5 rounded-full bg-white"></span>
+                      Social Impact
+                    </div>
+                  </div>
+                )}
                 
                 {/* Date chip with improved contrast and visibility */}
                 {project.lastUpdated && (
@@ -150,27 +159,50 @@ const ProjectShowcase = ({ themeMode, projectsData }) => {
                   </Button>
                   
                   {project.demoUrl && project.status !== 'upcoming' && (
-                    <div className="relative group">
-                      <Button 
-                        as="div"
-                        variant="outline" 
-                        size="sm"
-                        themeMode={themeMode}
-                        className="opacity-70 cursor-not-allowed"
-                        disabled={true}
-                      >
-                        Live Demo
-                      </Button>
-                      {/* Tooltip that appears on hover */}
-                      <div className={`absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 px-3 py-1 rounded text-xs font-medium whitespace-nowrap ${
-                        themeMode === 'dark' ? 'bg-gray-800 text-gray-200' : 'bg-gray-700 text-white'
-                      } opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 w-max`}>
-                        Coming soon - Not yet deployed
-                        <div className={`absolute top-full left-1/2 transform -translate-x-1/2 w-2 h-2 rotate-45 ${
-                          themeMode === 'dark' ? 'bg-gray-800' : 'bg-gray-700'
-                        }`}></div>
-                      </div>
-                    </div>
+                    <>
+                      {project.id === "together-as-one" ? (
+                        // Functional demo button for Together As One
+                        <Button 
+                          href="https://togetherasone.netlify.app/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          variant="outline" 
+                          size="sm"
+                          themeMode={themeMode}
+                          icon={
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                              <path d="M4.5 6a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-1a.5.5 0 0 0 0 1h1a1.5 1.5 0 0 0 1.5-1.5v-4A1.5 1.5 0 0 0 12 4.5H5A1.5 1.5 0 0 0 3.5 6v4A1.5 1.5 0 0 0 5 11.5h1a.5.5 0 0 0 0-1H5a.5.5 0 0 1-.5-.5V6z"/>
+                              <path d="M6 12.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5z"/>
+                            </svg>
+                          }
+                        >
+                          Live Demo
+                        </Button>
+                      ) : (
+                        // Disabled demo button for other projects
+                        <div className="relative group">
+                          <Button 
+                            as="div"
+                            variant="outline" 
+                            size="sm"
+                            themeMode={themeMode}
+                            className="opacity-70 cursor-not-allowed"
+                            disabled={true}
+                          >
+                            Live Demo
+                          </Button>
+                          {/* Tooltip that appears on hover */}
+                          <div className={`absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 px-3 py-1 rounded text-xs font-medium whitespace-nowrap ${
+                            themeMode === 'dark' ? 'bg-gray-800 text-gray-200' : 'bg-gray-700 text-white'
+                          } opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 w-max`}>
+                            Coming soon - Not yet deployed
+                            <div className={`absolute top-full left-1/2 transform -translate-x-1/2 w-2 h-2 rotate-45 ${
+                              themeMode === 'dark' ? 'bg-gray-800' : 'bg-gray-700'
+                            }`}></div>
+                          </div>
+                        </div>
+                      )}
+                    </>
                   )}
                   
                   {project.githubUrl && project.status !== 'upcoming' && (

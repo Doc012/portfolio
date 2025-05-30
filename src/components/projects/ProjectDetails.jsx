@@ -314,27 +314,39 @@ const ProjectDetails = ({ project, isOpen, onClose, themeMode }) => {
             </Button>
           )}
           
-          {project.demoUrl && (
-            <div className="relative group">
-              <Button 
-                as="div"                
-                variant="primary"
-                themeMode={themeMode}
-                withArrow={true}
-                className="opacity-70 cursor-not-allowed"
-                disabled={true}
-              >
-                Live Demo
-              </Button>
-              <div className={`absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 px-3 py-1.5 rounded text-sm font-medium whitespace-nowrap ${
-                themeMode === 'dark' ? 'bg-gray-800 text-gray-200' : 'bg-gray-700 text-white'
-              } opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10`}>
-                Coming soon - Not yet deployed
-                <div className={`absolute top-full left-1/2 transform -translate-x-1/2 w-2 h-2 rotate-45 ${
-                  themeMode === 'dark' ? 'bg-gray-800' : 'bg-gray-700'
-                }`}></div>
-              </div>
-            </div>
+          {project.demoUrl && project.status !== 'upcoming' && (
+            <>
+              {project.id === "together-as-one" ? (
+                <Button
+                  href="https://togetherasone.netlify.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  variant="outline"
+                  size="md" 
+                  themeMode={themeMode}
+                  className="mt-4"
+                  icon={
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                      <path d="M4.5 6a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-1a.5.5 0 0 0 0 1h1a1.5 1.5 0 0 0 1.5-1.5v-4A1.5 1.5 0 0 0 12 4.5H5A1.5 1.5 0 0 0 3.5 6v4A1.5 1.5 0 0 0 5 11.5h1a.5.5 0 0 0 0-1H5a.5.5 0 0 1-.5-.5V6z"/>
+                      <path d="M6 12.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5z"/>
+                    </svg>
+                  }
+                >
+                  View Live Demo
+                </Button>
+              ) : (
+                <Button
+                  as="div"
+                  variant="outline"
+                  size="md"
+                  themeMode={themeMode}
+                  className="mt-4 opacity-70 cursor-not-allowed"
+                  disabled={true}
+                >
+                  Live Demo Coming Soon
+                </Button>
+              )}
+            </>
           )}
           
           {project.caseStudyUrl && (

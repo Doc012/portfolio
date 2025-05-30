@@ -1,5 +1,50 @@
 const projectsData = [
   {
+    id: "together-as-one",
+    title: "Together As One",
+    shortDescription: "A community platform connecting people with water resources to those in need during South Africa's water crises.",
+    description: `Together As One is a community-focused platform designed to address water crises in South Africa by connecting people who need water with those who have resources to share. The platform emerged as a grassroots response to water outages and shortages that affect many South African communities.
+    
+    The application enables residents with boreholes or other water sources to connect with neighbors experiencing water shortages, fostering community resilience and solidarity during infrastructure challenges.`,
+    image: "/src/assets/home.png",
+    technologies: ["React", "Tailwind CSS", "React Router", "Context API", "Responsive Design", "Netlify"],
+    features: [
+      "Water Sharing Network: Connects residents with water resources to those in need",
+      "Location-Based Search: Find nearby water sharing points using location services",
+      "Community Organization: Platform organized by region with specific local initiatives",
+      "Educational Resources: Water conservation tips and community best practices",
+      "Volunteer Coordination: Register to share water resources during outages"
+    ],
+    communities: [
+      "Emfuleni", "Tshwane", "Cape Town", "Stellenbosch", 
+      "Durban", "Pietermaritzburg", "East London", "Bloemfontein"
+    ],
+    coreValues: [
+      "Community First: Building resilience through neighbor-to-neighbor support",
+      "Safety & Trust: Creating a verified network of water providers",
+      "Environmental Stewardship: Promoting responsible water usage",
+      "Inclusive Access: Ensuring everyone has access to clean water"
+    ],
+    mission: "Together As One aims to transform crisis into opportunity by building community resilience through water solidarity, creating sustainable networks for resource sharing, and turning essential needs into bridges between community members.",
+    impact: "The project combines practical technology solutions with community organizing to address a critical infrastructure challenge in a way that builds social cohesion rather than competition over scarce resources.",
+    challenges: "The main challenge was designing an intuitive interface that would work for all community members regardless of technical proficiency, while ensuring the platform could effectively match those with resources to those in need based on proximity and availability.",
+    learningOutcomes: "This project deepened my understanding of building applications with real social impact, balancing technical requirements with genuine community needs, and creating interfaces that work for diverse user groups.",
+    githubUrl: "", // Leave blank if private
+    demoUrl: "https://togetherasone.netlify.app/",
+    featured: true,
+    isNew: true,
+    status: "completed",
+    lastUpdated: "May 2025",
+    codeSize: "8K+ lines",
+    screenshots: [
+      { image: "https://sn-pcs.netlify.app/tao/tao-about.png", caption: "About Page" },
+      { image: "https://sn-pcs.netlify.app/tao/tao-find.png", caption: "Find Water Page" },
+      { image: "https://sn-pcs.netlify.app/tao/tao-comms.png", caption: "Communities Page" },
+      { image: "https://sn-pcs.netlify.app/tao/tao-tips.png", caption: "Find Water Map" }
+    ],
+    inProgress: false
+  },
+  {
     id: "repair-link-one",
     title: "RepairLink v1.0",
     shortDescription: "A full-stack repair service booking platform with separate dashboards for customers and providers.",
