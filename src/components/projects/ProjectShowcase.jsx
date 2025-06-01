@@ -160,10 +160,14 @@ const ProjectShowcase = ({ themeMode, projectsData }) => {
                   
                   {project.demoUrl && project.status !== 'upcoming' && (
                     <>
-                      {project.id === "together-as-one" ? (
-                        // Functional demo button for Together As One
+                      {project.id === "together-as-one" || project.id === "repair-link-one" || project.id === "repair-link-two" ? (
+                        // Functional demo button for active projects
                         <Button 
-                          href="https://togetherasone.netlify.app/"
+                          href={
+                            project.id === "together-as-one" 
+                              ? "https://togetherasone.netlify.app/"
+                              : "https://repairlinkdemo.netlify.app"
+                          }
                           target="_blank"
                           rel="noopener noreferrer"
                           variant="outline" 

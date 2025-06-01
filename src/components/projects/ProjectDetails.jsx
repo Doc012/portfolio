@@ -316,9 +316,13 @@ const ProjectDetails = ({ project, isOpen, onClose, themeMode }) => {
           
           {project.demoUrl && project.status !== 'upcoming' && (
             <>
-              {project.id === "together-as-one" ? (
+              {project.id === "together-as-one" || project.id === "repair-link-one" || project.id === "repair-link-two" ? (
                 <Button
-                  href="https://togetherasone.netlify.app/"
+                  href={
+                    project.id === "together-as-one" 
+                      ? "https://togetherasone.netlify.app/"
+                      : "https://repairlinkdemo.netlify.app"
+                  }
                   target="_blank"
                   rel="noopener noreferrer"
                   variant="outline"
