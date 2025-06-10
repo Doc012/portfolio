@@ -217,9 +217,9 @@ const AchievementsSection = ({ themeMode }) => {
   };
 
   const psnData = {
-    title: "PSN Attorneys",
-    subtitle: "Legal Practice Management System",
-    description: "Developing prototypes for PSN Attorneys law firm to modernize their systems. Currently in discussions to join their digital transformation initiative to improve client service delivery and internal workflows.",
+    title: "LegalPractice Pro",
+    subtitle: "Law Firm Practice Management System",
+    description: "A portfolio demonstration project showcasing a modern practice management system designed for law firms. This conceptual prototype illustrates how digital tools can enhance legal practice workflows and client service delivery.",
     features: [
       "Client portal integration",
       "Document management system",
@@ -227,10 +227,10 @@ const AchievementsSection = ({ themeMode }) => {
       "Secure client communications"
     ],
     status: [
-      "Completed initial prototype demonstrating core functionality",
-      "Received positive feedback from firm partners",
-      "In discussions to formalize development partnership",
-      "Planning phased implementation approach"
+      "Completed functional prototype demonstrating core features",
+      "Designed with input from legal professionals",
+      "Showcases modern legal tech implementation concepts",
+      "Developed as a portfolio piece to demonstrate full-stack capabilities"
     ],
     tags: [
       { icon: <FaUsers className="mr-1" />, text: "Client-centered design" },
@@ -352,10 +352,10 @@ const AchievementsSection = ({ themeMode }) => {
                   <div className={`p-2 rounded-full ${themeMode === 'dark' ? 'bg-blue-900/50 text-blue-400' : 'bg-blue-200 text-blue-700'} mr-3`}>
                     <FaGavel className="text-xl" />
                   </div>
-                  <h3 className="text-lg font-bold">PSN Attorneys Integration</h3>
+                  <h3 className="text-lg font-bold">LegalPractice Pro</h3>
                 </div>
                 <span className={`px-3 py-1 rounded-full text-xs ${themeMode === 'dark' ? 'bg-blue-900/30 text-blue-400' : 'bg-blue-100 text-blue-700'}`}>
-                  <FaLaptopCode className="inline mr-1 text-xs" /> In Progress
+                  <FaLaptopCode className="inline mr-1 text-xs" /> Portfolio Project
                 </span>
               </div>
             </div>
@@ -367,7 +367,7 @@ const AchievementsSection = ({ themeMode }) => {
                 Legal Tech Innovation
               </div>
               <p className={`${themeMode === 'dark' ? 'text-gray-300' : 'text-gray-600'} mb-4 line-clamp-3`}>
-                Developing prototypes for PSN Attorneys law firm to modernize their systems and improve client service delivery.
+                A conceptual prototype showcasing how digital tools can enhance legal practice workflows and client service delivery.
               </p>
               
               <div className="flex flex-wrap gap-2 mb-4">
