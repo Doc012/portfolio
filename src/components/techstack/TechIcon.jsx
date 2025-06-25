@@ -21,7 +21,7 @@ const TechIcon = ({
     expert: themeMode === 'dark' ? "bg-gradient-to-r from-emerald-500 to-teal-500" : "bg-gradient-to-r from-emerald-400 to-teal-400"
   };
 
-  // Proficiency labels with emojis
+  // Proficiency labels with icons
   const proficiencyLabels = {
     beginner: "🌱 Beginner",
     intermediate: "🌿 Intermediate",
@@ -29,7 +29,7 @@ const TechIcon = ({
     expert: "🌳 Expert"
   };
 
-  // Get proficiency percentage with smoother curve
+  // Get proficiency width with smoother curve
   const getProficiencyWidth = () => {
     switch (proficiency) {
       case 'beginner': return '30%';
@@ -116,9 +116,9 @@ const TechIcon = ({
           />
         )}
         
-        {/* Icon with enhanced animations */}
+        {/* Icon with enhanced animations - Updated for SVG icons */}
         <motion.div 
-          className="text-4xl mb-2 relative"
+          className="text-4xl mb-2 relative flex items-center justify-center"
           whileHover={{ scale: 1.15, rotate: 5 }}
           transition={{ type: "spring", stiffness: 400, damping: 10 }}
           style={{ color }}
@@ -132,7 +132,8 @@ const TechIcon = ({
               style={{ backgroundColor: `${color}20` }}
             />
           )}
-          {icon}
+          {/* This now handles both string emoji icons and React component icons */}
+          {typeof icon === 'string' ? icon : <div className="text-4xl">{icon}</div>}
         </motion.div>
         
         {/* Name */}
@@ -180,7 +181,10 @@ const TechIcon = ({
                 color: color
               }}
             >
-              <span className="text-2xl">{icon}</span>
+              {typeof icon === 'string' ? 
+                <span className="text-2xl">{icon}</span> : 
+                <div className="text-2xl">{icon}</div>
+              }
             </div>
             <p className={`${tooltipTextColor} text-sm leading-relaxed`}>{description}</p>
           </div>

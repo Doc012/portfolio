@@ -3,13 +3,37 @@ import { motion, AnimatePresence } from 'framer-motion';
 import SectionHeading from '../common/SectionHeading';
 import TechIcon from './TechIcon';
 import { staggerContainer, fadeIn } from '../../utils/animations';
+import { 
+  FaJava, 
+  FaReact, 
+  FaJs, 
+  FaHtml5, 
+  FaCss3Alt, 
+  FaGitAlt,
+  FaDocker, 
+  FaAws, 
+  FaMicrosoft,
+  FaServer
+} from 'react-icons/fa';
+import { 
+  SiSpringboot, 
+  SiMysql, 
+  SiTypescript, 
+  SiRedis, 
+  SiTailwindcss,
+  SiGraphql,
+  SiNextdotjs,
+  SiReact, // Use SiReact instead of SiReactnative
+  SiMongodb,
+  SiKubernetes
+} from 'react-icons/si';
 
-// Sample Tech Stack data with updated properties
+// Updated Tech Stack data with real icons
 const techStackData = [
   {
     id: 1,
     name: "Java",
-    icon: "☕",
+    icon: <FaJava />,
     color: "#f89820",
     description: "Core language for backend development with 3+ years of experience in building robust applications.",
     proficiency: "intermediate",
@@ -18,7 +42,7 @@ const techStackData = [
   {
     id: 2,
     name: "Spring Boot",
-    icon: "🍃",
+    icon: <SiSpringboot />,
     color: "#6db33f",
     description: "Framework for creating production-ready Spring applications with minimal configuration.",
     proficiency: "intermediate",
@@ -27,7 +51,7 @@ const techStackData = [
   {
     id: 3,
     name: "React",
-    icon: "⚛️",
+    icon: <FaReact />,
     color: "#61dafb",
     description: "Library for building interactive user interfaces with reusable components.",
     proficiency: "intermediate",
@@ -36,7 +60,7 @@ const techStackData = [
   {
     id: 4,
     name: "MySQL",
-    icon: "🐬",
+    icon: <SiMysql />,
     color: "#4479A1",
     description: "Relational database for storing and managing application data.",
     proficiency: "intermediate",
@@ -45,7 +69,7 @@ const techStackData = [
   {
     id: 5,
     name: "JavaScript",
-    icon: "📜",
+    icon: <FaJs />,
     color: "#F0DB4F",
     description: "Core language for front-end development and browser interactions.",
     proficiency: "intermediate",
@@ -54,7 +78,7 @@ const techStackData = [
   {
     id: 6,
     name: "TypeScript",
-    icon: "📝",
+    icon: <SiTypescript />,
     color: "#3178c6",
     description: "Strongly typed superset of JavaScript for more maintainable code.",
     proficiency: "beginner",
@@ -63,7 +87,7 @@ const techStackData = [
   {
     id: 7,
     name: "Docker",
-    icon: "🐳",
+    icon: <FaDocker />,
     color: "#2496ED",
     description: "Platform for developing, shipping, and running applications in containers.",
     proficiency: "beginner",
@@ -72,7 +96,7 @@ const techStackData = [
   {
     id: 8,
     name: "Git",
-    icon: "📊",
+    icon: <FaGitAlt />,
     color: "#F05032",
     description: "Version control system for tracking changes and collaborating on code.",
     proficiency: "intermediate",
@@ -81,7 +105,7 @@ const techStackData = [
   {
     id: 9,
     name: "Redis",
-    icon: "⚡",
+    icon: <SiRedis />,
     color: "#DC382D",
     description: "In-memory data structure store used as database, cache, and message broker.",
     proficiency: "beginner",
@@ -90,7 +114,7 @@ const techStackData = [
   {
     id: 10,
     name: "AWS",
-    icon: "☁️",
+    icon: <FaAws />,
     color: "#FF9900",
     description: "Cloud platform for hosting applications and services.",
     proficiency: "beginner",
@@ -99,7 +123,7 @@ const techStackData = [
   {
     id: 11,
     name: "Azure",
-    icon: "🌩️",
+    icon: <FaMicrosoft />,
     color: "#0078D4",
     description: "Microsoft's cloud computing service for building and managing applications.",
     proficiency: "beginner",
@@ -108,7 +132,7 @@ const techStackData = [
   {
     id: 12,
     name: "HTML",
-    icon: "🌐",
+    icon: <FaHtml5 />,
     color: "#E34F26",
     description: "Standard markup language for creating web pages and applications.",
     proficiency: "advanced",
@@ -117,7 +141,7 @@ const techStackData = [
   {
     id: 13,
     name: "CSS",
-    icon: "🎨",
+    icon: <FaCss3Alt />,
     color: "#1572B6",
     description: "Style sheet language for designing and laying out web pages.",
     proficiency: "advanced",
@@ -126,7 +150,7 @@ const techStackData = [
   {
     id: 14,
     name: "Tailwind CSS",
-    icon: "🌊",
+    icon: <SiTailwindcss />,
     color: "#06B6D4",
     description: "Utility-first CSS framework for rapid UI development.",
     proficiency: "intermediate",
@@ -135,7 +159,7 @@ const techStackData = [
   {
     id: 15,
     name: "REST API",
-    icon: "🔄",
+    icon: <FaServer />,
     color: "#4CAF50",
     description: "Architectural style for designing networked applications.",
     proficiency: "intermediate",
@@ -143,35 +167,35 @@ const techStackData = [
   }
 ];
 
-// Technologies I'm currently learning
+// Updated Technologies currently learning with real icons
 const learningTechData = [
   {
     name: "GraphQL",
-    icon: "🔍",
+    icon: <SiGraphql />,
     color: "#E535AB",
     description: "Query language for APIs and runtime for fulfilling queries with existing data."
   },
   {
     name: "Next.js",
-    icon: "⚡",
+    icon: <SiNextdotjs />,
     color: "#000000",
     description: "React framework for production with server-side rendering and static site generation."
   },
   {
     name: "React Native",
-    icon: "📱",
+    icon: <SiReact />, // Use SiReact for React Native too
     color: "#61DAFB",
     description: "Framework for building native mobile applications using React."
   },
   {
     name: "MongoDB",
-    icon: "🍃",
+    icon: <SiMongodb />,
     color: "#47A248",
     description: "NoSQL database program that uses JSON-like documents with optional schemas."
   },
   {
     name: "Kubernetes",
-    icon: "🚢",
+    icon: <SiKubernetes />,
     color: "#326CE5",
     description: "Open-source container orchestration system for automating software deployment and scaling."
   }
