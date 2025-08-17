@@ -9,11 +9,12 @@ import projectsData from '../../data/projectsData';
 const ProjectsSection = ({ themeMode }) => {
   // Get all projects with specific statuses (completed, in-progress, upcoming)
   // This will automatically include any new projects with these statuses
-  const showcaseProjects = projectsData.filter(p => 
-    p.status === "completed" || 
-    p.status === "in-progress" || 
-    p.status === "upcoming"
-  );
+  // Only show the top 3 projects: FarmSA, RepairLink, Together As One
+  const showcaseProjects = [
+    projectsData.find(p => p.id === "farmsa"),
+    projectsData.find(p => p.id === "repair-link"),
+    projectsData.find(p => p.id === "together-as-one")
+  ].filter(Boolean);
   
   // Theme-specific styles
   const sectionBg = themeMode === 'dark' 

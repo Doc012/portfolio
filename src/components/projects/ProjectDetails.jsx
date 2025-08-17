@@ -315,42 +315,23 @@ const ProjectDetails = ({ project, isOpen, onClose, themeMode }) => {
           )}
           
           {project.demoUrl && project.status !== 'upcoming' && (
-            <>
-              {project.id === "together-as-one" || project.id === "repair-link-one" || project.id === "repair-link-two" ? (
-                <Button
-                  href={
-                    project.id === "together-as-one" 
-                      ? "https://togetherasone.netlify.app/"
-                      : "https://repairlinkdemo.netlify.app"
-                  }
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  variant="outline"
-                  size="md" 
-                  themeMode={themeMode}
-                  className="mt-4"
-                  icon={
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                      <path d="M4.5 6a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-1a.5.5 0 0 0 0 1h1a1.5 1.5 0 0 0 1.5-1.5v-4A1.5 1.5 0 0 0 12 4.5H5A1.5 1.5 0 0 0 3.5 6v4A1.5 1.5 0 0 0 5 11.5h1a.5.5 0 0 0 0-1H5a.5.5 0 0 1-.5-.5V6z"/>
-                      <path d="M6 12.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5z"/>
-                    </svg>
-                  }
-                >
-                  View Live Demo
-                </Button>
-              ) : (
-                <Button
-                  as="div"
-                  variant="outline"
-                  size="md"
-                  themeMode={themeMode}
-                  className="mt-4 opacity-70 cursor-not-allowed"
-                  disabled={true}
-                >
-                  Live Demo Coming Soon
-                </Button>
-              )}
-            </>
+            <Button
+              href={project.demoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="outline"
+              size="md"
+              themeMode={themeMode}
+              className="mt-4"
+              icon={
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                  <path d="M4.5 6a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-1a.5.5 0 0 0 0 1h1a1.5 1.5 0 0 0 1.5-1.5v-4A1.5 1.5 0 0 0 12 4.5H5A1.5 1.5 0 0 0 3.5 6v4A1.5 1.5 0 0 0 5 11.5h1a.5.5 0 0 0 0-1H5a.5.5 0 0 1-.5-.5V6z"/>
+                  <path d="M6 12.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5z"/>
+                </svg>
+              }
+            >
+              View Live Site
+            </Button>
           )}
           
           {project.caseStudyUrl && (
