@@ -80,16 +80,17 @@ const AboutSection = ({ themeMode }) => {
                   <p
                     className={`text-lg leading-relaxed ${paragraphColor} mb-4`}
                   >
-                    A passionate{" "}
+                    An experienced{" "}
                     <span className={accentGradient}>
-                      developer-in-progress
+                      Backend Developer
                     </span>{" "}
-                    with a hunger for learning and creating meaningful solutions
-                    through code.
+                    specializing in Java Spring Boot microservices and 
+                    event-driven architectures with Kafka.
                   </p>
                   <p className={`${secondaryTextColor}`}>
-                    My journey is defined by daily practice, building projects,
-                    and embracing challenges that expand my skill set.
+                    Currently working as a freelance developer, creating scalable 
+                    backend solutions and improving system efficiency through 
+                    modern development practices.
                   </p>
                 </div>
               </motion.div>
@@ -130,14 +131,14 @@ const AboutSection = ({ themeMode }) => {
                     }`}
                   >
                     <span className="w-2 h-2 rounded-full bg-emerald-500 mr-2 animate-pulse"></span>
-                    Available for hire
+                    Available for opportunities
                   </span>
                 </div>
 
                 <p className={`text-xl leading-relaxed ${paragraphColor} mb-2`}>
-                  Unemployed, coding daily.{" "}
-                  <span className={headingGradient}>Hungry to build.</span>{" "}
-                  Eager to contribute.
+                  Currently freelancing as{" "}
+                  <span className={headingGradient}>Backend Developer.</span>{" "}
+                  Open to full-time opportunities.
                 </p>
 
                 <div
@@ -148,21 +149,21 @@ const AboutSection = ({ themeMode }) => {
                       themeMode === "dark" ? "bg-gray-700" : "bg-gray-200"
                     }`}
                   >
-                    Daily Practice
+                    Freelancing
                   </span>
                   <span
                     className={`text-xs px-2 py-1 rounded-md ${
                       themeMode === "dark" ? "bg-gray-700" : "bg-gray-200"
                     }`}
                   >
-                    Job Seeking
+                    Microservices
                   </span>
                   <span
                     className={`text-xs px-2 py-1 rounded-md ${
                       themeMode === "dark" ? "bg-gray-700" : "bg-gray-200"
                     }`}
                   >
-                    Coding non-stop
+                    Spring Boot Expert
                   </span>
                 </div>
               </motion.div>
@@ -201,16 +202,12 @@ const AboutSection = ({ themeMode }) => {
                   <p
                     className={`text-lg leading-relaxed ${paragraphColor} mb-4`}
                   >
-                    Currently looking for any{" "}
+                    Looking for{" "}
                     <span className="font-bold bg-gradient-to-r from-emerald-500 to-teal-500 bg-clip-text text-transparent">
-                      junior
+                      intermediate to senior
                     </span>{" "}
-                    or{" "}
-                    <span className="font-bold bg-gradient-to-r from-emerald-500 to-teal-500 bg-clip-text text-transparent">
-                      beginner
-                    </span>{" "}
-                    full-stack web development role – not targeting intermediate
-                    or senior roles yet.
+                    backend developer roles where I can leverage my Spring Boot 
+                    microservices expertise and contribute to scalable architecture decisions.
                   </p>
 
                   <div className="mt-5">
@@ -221,7 +218,7 @@ const AboutSection = ({ themeMode }) => {
                           : "text-emerald-600"
                       }`}
                     >
-                      I'm ready for:
+                      Ready to contribute:
                     </h4>
                     <ul className={`space-y-2 ${secondaryTextColor}`}>
                       <li className="flex items-start">
@@ -243,7 +240,7 @@ const AboutSection = ({ themeMode }) => {
                             d="M5 13l4 4L19 7"
                           />
                         </svg>
-                        <span>Entry-level developer positions</span>
+                        <span>Architecting microservices solutions</span>
                       </li>
                       <li className="flex items-start">
                         <svg
@@ -264,7 +261,7 @@ const AboutSection = ({ themeMode }) => {
                             d="M5 13l4 4L19 7"
                           />
                         </svg>
-                        <span>Internships with learning opportunities</span>
+                        <span>Leading backend development teams</span>
                       </li>
                       <li className="flex items-start">
                         <svg
@@ -285,7 +282,7 @@ const AboutSection = ({ themeMode }) => {
                             d="M5 13l4 4L19 7"
                           />
                         </svg>
-                        <span>Mentorship-focused environments</span>
+                        <span>Mentoring junior developers</span>
                       </li>
                     </ul>
                   </div>

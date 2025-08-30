@@ -13,9 +13,9 @@ const journeyData = [
     title: "Intern",
     description: "First professional exposure, learning team workflows",
     icon: "🚀",
-    isActive: true,
-    isCompleted: false,
-    details: "Currently at this stage. Developing practical skills through daily coding practice and personal projects. Learning industry-standard tools, workflows, and best practices. Building full-stack applications with real-world functionality."
+    isActive: false,
+    isCompleted: true,
+    details: "Completed stage. Developed foundational skills through learning and experimentation. Built understanding of development workflows and basic programming concepts."
   },
   {
     id: "junior",
@@ -23,17 +23,17 @@ const journeyData = [
     description: "Growing independence, contributing to real projects",
     icon: "💻",
     isActive: false,
-    isCompleted: false,
-    details: "Next target level. Will focus on contributing to team projects, writing maintainable code, and understanding larger codebases. Will work on developing deeper knowledge of frameworks and tools."
+    isCompleted: true,
+    details: "Completed stage. Gained hands-on experience with real projects, learned to work independently, and developed proficiency in core technologies like Java, Spring Boot, and database management."
   },
   {
     id: "intermediate",
     title: "Intermediate",
-    description: "Leading features, mentoring others",
+    description: "Leading features, architecting solutions",
     icon: "⚙️",
-    isActive: false,
+    isActive: true,
     isCompleted: false,
-    details: "Future goal: Taking ownership of features and components, mentoring newer developers, and making architectural decisions for parts of applications. Will focus on optimizing performance and improving development processes."
+    details: "Currently at this stage. Working as a Backend Developer specializing in Java and Spring Boot microservices. Leading feature development, implementing event-driven architectures with Kafka, and designing scalable backend solutions. Experienced with database optimization and RESTful API design."
   },
   {
     id: "senior",

@@ -3,6 +3,7 @@ import SectionHeading from '../common/SectionHeading';
 import JourneyLevel from './JourneyLevel';
 import Timeline from './Timeline';
 import { staggerContainer, fadeIn } from '../../utils/animations';
+import journeyData from '../../data/journeyData';
 
 const JourneySection = ({ themeMode }) => {
   // Theme-specific styles updated for emerald/teal theme
@@ -20,47 +21,11 @@ const JourneySection = ({ themeMode }) => {
   const bulletColor = themeMode === 'dark' ? 'text-teal-400' : 'text-teal-500';
 
   // Enhanced journey levels with icons and descriptions
-  // Updated to show Junior as active instead of Intern
-  const journeyLevels = [
-    {
-      title: "Zero",
-      description: "Learning fundamentals, building simple projects",
-      icon: "🌱",
-      isActive: false,
-      isCompleted: true
-    },
-    {
-      title: "Intern",
-      description: "First professional exposure, learning team workflows",
-      icon: "🚀",
-      isActive: false,
-      isCompleted: true
-    },
-    {
-      title: "Junior",
-      description: "Growing independence, contributing to real projects",
-      icon: "💻",
-      isActive: true,
-      isCompleted: false
-    },
-    {
-      title: "Intermediate",
-      description: "Leading features, mentoring others",
-      icon: "⚙️",
-      isActive: false,
-      isCompleted: false
-    },
-    {
-      title: "Senior",
-      description: "Architectural decisions, guiding teams",
-      icon: "🏆",
-      isActive: false,
-      isCompleted: false
-    }
-  ];
+  // Use data from journeyData.js
+  const journeyLevels = journeyData;
 
-  // Updated active index to Junior (position 2)
-  const activeIndex = 2;
+  // Find the active index from the data
+  const activeIndex = journeyLevels.findIndex(level => level.isActive);
 
   return (
     <section id="journey" className={`py-16 md:py-24 ${sectionBg} relative overflow-hidden`}>
@@ -113,8 +78,8 @@ const JourneySection = ({ themeMode }) => {
             className="max-w-4xl mx-auto text-center mb-12"
           >
             <p className={`${textColor} text-lg`}>
-              Currently at <span className={`${accentColor} font-bold`}>Junior Developer</span> level. 
-              Building skills daily through projects and continuous learning.
+              Currently at <span className={`${accentColor} font-bold`}>Intermediate Developer</span> level. 
+              Specializing in Backend Development with proven freelance experience and enterprise-level expertise.
             </p>
           </motion.div>
           
@@ -123,7 +88,11 @@ const JourneySection = ({ themeMode }) => {
             activeIndex={activeIndex}
             themeMode={themeMode}
             levels={journeyLevels.map((level, index) => ({
-              ...level,
+              title: level.title,
+              description: level.description,
+              icon: level.icon,
+              isActive: level.isActive,
+              isCompleted: level.isCompleted,
               content: (
                 <JourneyLevel
                   key={level.title}
@@ -162,10 +131,10 @@ const JourneySection = ({ themeMode }) => {
             
             <ul className={`space-y-4 ${textColor}`}>
               {[
-                "Enhancing my expertise in full-stack development with Java, Spring Boot, and React",
-                "Contributing to real-world projects and solving complex technical challenges",
-                "Implementing industry best practices in software development and deployment",
-                "Growing my skills in code review, testing, and collaborative development"
+                "Advancing my microservices architecture expertise with Spring Boot and Apache Kafka",
+                "Leading backend development initiatives and mentoring junior developers",
+                "Exploring cloud-native technologies and container orchestration with Kubernetes",
+                "Contributing to open-source projects and building scalable enterprise solutions"
               ].map((item, i) => (
                 <motion.li 
                   key={i} 
@@ -194,7 +163,7 @@ const JourneySection = ({ themeMode }) => {
                     Next milestone:
                   </span>
                 </div>
-                <span className={`${accentColor} font-medium`}>Intermediate Developer — Q1 2027</span>
+                <span className={`${accentColor} font-medium`}>Senior Developer — Q4 2026</span>
               </div>
             </div>
           </motion.div>

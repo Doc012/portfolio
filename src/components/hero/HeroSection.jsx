@@ -197,9 +197,7 @@ const HeroSection = ({ themeMode }) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.5 }}
             >
-              <span>Aspiring{" "}</span>
-              <span 
-                className="relative inline-flex items-center w-auto max-w-full min-w-[300px] md:min-w-[380px] lg:min-w-[450px]" 
+              <span className="relative inline-flex items-center w-auto max-w-full min-w-[300px] md:min-w-[380px] lg:min-w-[450px]" 
                 style={{ 
                   minHeight: '1.5em',
                   lineHeight: '1.5em' // Ensures consistent line height
@@ -207,10 +205,10 @@ const HeroSection = ({ themeMode }) => {
               >
                 <TypingEffect 
                   texts={[
-                    "Full-Stack Java Developer", 
-                    "Web Developer", 
-                    "Problem Solver", 
-                    "Quick Learner"
+                    "Backend Developer", 
+                    "Java Spring Boot Developer", 
+                    "Microservices Architect", 
+                    "Full-Stack Developer"
                   ]}
                   typingSpeed={60}
                   className={`${typingTextColor} whitespace-nowrap`}
@@ -225,7 +223,7 @@ const HeroSection = ({ themeMode }) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.5 }}
             >
-              Currently focused on building my skills through daily coding practice and creating full-stack projects. Ready to contribute and grow in a junior developer role.
+              Experienced Backend Developer specializing in Java Spring Boot microservices and event-driven architectures. Currently freelancing and building scalable solutions with proven track record of improving system efficiency by up to 60%.
             </motion.p>
             
             {/* Action buttons */}
@@ -238,7 +236,7 @@ const HeroSection = ({ themeMode }) => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.7, duration: 0.5 }}
             >
-              {["Java", "React", "Spring", "Tailwind CSS", "JavaScript", "MySQL"].map((tech, index) => (
+              {["Java", "Spring Boot", "Microservices", "Kafka", "MySQL", "React"].map((tech, index) => (
                 <motion.span
                   key={tech}
                   initial={{ opacity: 0, y: 20 }}

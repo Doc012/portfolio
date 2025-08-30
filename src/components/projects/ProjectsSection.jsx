@@ -92,10 +92,10 @@ const ProjectsSection = ({ themeMode }) => {
               </svg>
             </div>
             <h3 className={`text-xl font-bold mb-3 ${themeMode === 'dark' ? 'text-white' : 'text-gray-800'}`}>
-              Explore My Developer Journey
+              Explore My Professional Work
             </h3>
             <p className={`${ctaText} mb-6 max-w-md mx-auto`}>
-              This portfolio showcases my most recent and significant projects. My complete GitHub repository documents my entire coding journey, from early learning projects to advanced implementations and open source contributions.
+              These projects showcase my expertise in building production-ready applications with modern technologies. My GitHub repository includes both professional freelance work and personal projects that demonstrate my technical growth and capabilities.
             </p>
             
             <Button 

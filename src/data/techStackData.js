@@ -5,28 +5,28 @@ const techStackData = [
     name: "Java",
     icon: "☕",
     color: "#f89820",
-    description: "My primary backend language. I use Java for building robust server-side applications with strong type safety and performance.",
-    proficiency: "intermediate",
+    description: "Expert in Java for building enterprise-grade backend applications. Experienced with advanced concepts, design patterns, and performance optimization.",
+    proficiency: "advanced",
     category: "Backend",
-    yearStarted: 2022
+    yearStarted: 2021
   },
   {
     id: "spring-boot",
     name: "Spring Boot",
     icon: "🍃",
     color: "#6db33f",
-    description: "I use Spring Boot to create production-ready Java applications with minimal configuration, focusing on REST APIs and microservices.",
-    proficiency: "intermediate",
+    description: "Highly proficient in Spring Boot for creating production-ready microservices. Expert in REST API development, auto-configuration, and dependency injection.",
+    proficiency: "advanced",
     category: "Backend",
-    yearStarted: 2022
+    yearStarted: 2021
   },
   {
     id: "spring-security",
     name: "Spring Security",
     icon: "🔒",
     color: "#6db33f",
-    description: "Implementing authentication and authorization in my Java applications with role-based access control and JWT tokens.",
-    proficiency: "beginner",
+    description: "Implementing robust authentication and authorization systems with JWT, role-based access control, and OAuth2 integration.",
+    proficiency: "intermediate",
     category: "Backend",
     yearStarted: 2022
   },
@@ -35,10 +35,40 @@ const techStackData = [
     name: "Hibernate",
     icon: "📝",
     color: "#bcae79",
-    description: "Using Hibernate ORM for database interactions, entity mappings, and transaction management in Java applications.",
+    description: "Advanced knowledge of Hibernate ORM for complex database operations, custom queries, and performance tuning in enterprise applications.",
+    proficiency: "advanced",
+    category: "Backend",
+    yearStarted: 2021
+  },
+  {
+    id: "kafka",
+    name: "Apache Kafka",
+    icon: "📢",
+    color: "#231F20",
+    description: "Expert in building event-driven microservices with Kafka for asynchronous message processing, notifications, and real-time data streaming.",
     proficiency: "intermediate",
     category: "Backend",
     yearStarted: 2022
+  },
+  {
+    id: "microservices",
+    name: "Microservices",
+    icon: "🔗",
+    color: "#4CAF50",
+    description: "Architecting and implementing scalable microservices using Spring Boot, with focus on service discovery, API gateways, and inter-service communication.",
+    proficiency: "advanced",
+    category: "Backend",
+    yearStarted: 2022
+  },
+  {
+    id: "rest-apis",
+    name: "REST APIs",
+    icon: "🔌",
+    color: "#FF5722",
+    description: "Designing and developing RESTful APIs with proper HTTP methods, status codes, and documentation. Expert in API versioning and error handling.",
+    proficiency: "advanced",
+    category: "Backend",
+    yearStarted: 2021
   },
 
   // Frontend Technologies
@@ -119,10 +149,10 @@ const techStackData = [
     name: "MySQL",
     icon: "🐬",
     color: "#4479A1",
-    description: "Designing relational database schemas, writing optimized queries, and managing data persistence for applications.",
-    proficiency: "intermediate",
+    description: "Advanced MySQL expertise including database design, query optimization, indexing strategies, and performance tuning. Reduced response times by 40% in production systems.",
+    proficiency: "advanced",
     category: "Database",
-    yearStarted: 2022
+    yearStarted: 2021
   },
   {
     id: "postgresql",
@@ -161,30 +191,40 @@ const techStackData = [
     name: "Docker",
     icon: "🐳",
     color: "#2496ED",
-    description: "Containerizing applications for consistent development, testing, and deployment environments.",
-    proficiency: "beginner",
+    description: "Experienced in containerizing Java applications with Docker for deployment readiness and scalable infrastructure management.",
+    proficiency: "intermediate",
     category: "DevOps",
-    yearStarted: 2023
+    yearStarted: 2022
   },
   {
     id: "aws",
     name: "AWS",
     icon: "☁️",
     color: "#FF9900",
-    description: "Using cloud services like EC2, S3, and RDS for deploying and scaling web applications.",
-    proficiency: "beginner",
+    description: "Deploying and managing applications on AWS cloud services including EC2, RDS, and implementing CI/CD pipelines.",
+    proficiency: "intermediate",
     category: "Cloud",
-    yearStarted: 2023
+    yearStarted: 2022
   },
   {
     id: "azure",
     name: "Azure",
     icon: "🌩️",
     color: "#0078D4",
-    description: "Exploring Microsoft's cloud platform for application hosting and integration with other Microsoft services.",
-    proficiency: "beginner",
+    description: "Experience with Microsoft Azure cloud platform for application hosting and integration with enterprise systems.",
+    proficiency: "intermediate",
     category: "Cloud",
-    yearStarted: 2023
+    yearStarted: 2022
+  },
+  {
+    id: "maven",
+    name: "Maven",
+    icon: "🔧",
+    color: "#C71A36",
+    description: "Expert in Maven for project build automation, dependency management, and multi-module project structuring in Java applications.",
+    proficiency: "advanced",
+    category: "DevOps",
+    yearStarted: 2021
   },
 
   // Testing
