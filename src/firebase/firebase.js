@@ -16,13 +16,13 @@ import {
 
 // Your web app's Firebase configuration using Vite's environment variables
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
-  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
-  appId: import.meta.env.VITE_FIREBASE_APP_ID,
-  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
+  apiKey: "AIzaSyDOMXxCy7sD4K00gb8XY67iaeDb8CabhFk",
+  authDomain: "portfolio-f107a.firebaseapp.com",
+  projectId: "portfolio-f107a",
+  storageBucket: "portfolio-f107a.firebasestorage.app",
+  messagingSenderId: "577193229166",
+  appId: "1:577193229166:web:ac49d62cd3b898662adf7f",
+  measurementId: "G-R3FQTKSB33"
 };
 
 // Initialize Firebase

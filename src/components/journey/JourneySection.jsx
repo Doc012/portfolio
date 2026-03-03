@@ -78,8 +78,8 @@ const JourneySection = ({ themeMode }) => {
             className="max-w-4xl mx-auto text-center mb-12"
           >
             <p className={`${textColor} text-lg`}>
-              Currently at <span className={`${accentColor} font-bold`}>Intermediate Developer</span> level. 
-              Specializing in Backend Development with proven freelance experience and enterprise-level expertise.
+              Currently at <span className={`${accentColor} font-bold`}>Junior Developer</span> level, 
+              focused on backend development with hands-on experience building real projects and improving practical skills.
             </p>
           </motion.div>
           
@@ -131,10 +131,10 @@ const JourneySection = ({ themeMode }) => {
             
             <ul className={`space-y-4 ${textColor}`}>
               {[
-                "Advancing my microservices architecture expertise with Spring Boot and Apache Kafka",
-                "Leading backend development initiatives and mentoring junior developers",
-                "Exploring cloud-native technologies and container orchestration with Kubernetes",
-                "Contributing to open-source projects and building scalable enterprise solutions"
+                "Building backend services with Spring Boot and improving REST API design skills",
+                "Gaining hands-on experience through real projects and team collaboration",
+                "Learning best practices for clean code, testing, and database management",
+                "Developing confidence and independence while contributing effectively to projects"
               ].map((item, i) => (
                 <motion.li 
                   key={i} 
@@ -163,7 +163,7 @@ const JourneySection = ({ themeMode }) => {
                     Next milestone:
                   </span>
                 </div>
-                <span className={`${accentColor} font-medium`}>Senior Developer — Q4 2026</span>
+                <span className={`${accentColor} font-medium`}>Strengthening skills as a Junior Developer - Q4 2026</span>
               </div>
             </div>
           </motion.div>

@@ -80,17 +80,14 @@ const AboutSection = ({ themeMode }) => {
                   <p
                     className={`text-lg leading-relaxed ${paragraphColor} mb-4`}
                   >
-                    An experienced{" "}
+                    I am a passionate{" "}
                     <span className={accentGradient}>
-                      Backend Developer
+                      Junior Java Developer
                     </span>{" "}
-                    specializing in Java Spring Boot microservices and 
-                    event-driven architectures with Kafka.
+                    focused on building backend applications using Spring Boot and REST APIs. I enjoy designing clean, maintainable systems and continuously improving my understanding of software architecture and best practices.
                   </p>
                   <p className={`${secondaryTextColor}`}>
-                    Currently working as a freelance developer, creating scalable 
-                    backend solutions and improving system efficiency through 
-                    modern development practices.
+                    I am currently strengthening my backend development skills through personal projects and hands-on experimentation with modern development tools and technologies.
                   </p>
                 </div>
               </motion.div>
@@ -136,9 +133,9 @@ const AboutSection = ({ themeMode }) => {
                 </div>
 
                 <p className={`text-xl leading-relaxed ${paragraphColor} mb-2`}>
-                  Currently freelancing as{" "}
-                  <span className={headingGradient}>Backend Developer.</span>{" "}
-                  Open to full-time opportunities.
+                  Available for opportunities. Currently freelancing as a{" "}
+                  <span className={headingGradient}>Backend Developer,</span>{" "}
+                  gaining hands-on experience with Java and Spring Boot. Open to full-time or internship roles to grow further in backend development.
                 </p>
 
                 <div
@@ -149,21 +146,21 @@ const AboutSection = ({ themeMode }) => {
                       themeMode === "dark" ? "bg-gray-700" : "bg-gray-200"
                     }`}
                   >
-                    Freelancing
+                    Backend development
                   </span>
                   <span
                     className={`text-xs px-2 py-1 rounded-md ${
                       themeMode === "dark" ? "bg-gray-700" : "bg-gray-200"
                     }`}
                   >
-                    Microservices
+                    Building RESTful APIs
                   </span>
                   <span
                     className={`text-xs px-2 py-1 rounded-md ${
                       themeMode === "dark" ? "bg-gray-700" : "bg-gray-200"
                     }`}
                   >
-                    Spring Boot Expert
+                    Integrating databases
                   </span>
                 </div>
               </motion.div>
@@ -202,12 +199,11 @@ const AboutSection = ({ themeMode }) => {
                   <p
                     className={`text-lg leading-relaxed ${paragraphColor} mb-4`}
                   >
-                    Looking for{" "}
+                    I am seeking{" "}
                     <span className="font-bold bg-gradient-to-r from-emerald-500 to-teal-500 bg-clip-text text-transparent">
-                      intermediate to senior
+                      an entry-level or internship opportunity
                     </span>{" "}
-                    backend developer roles where I can leverage my Spring Boot 
-                    microservices expertise and contribute to scalable architecture decisions.
+                    as a Java Backend Developer where I can contribute to real-world projects, strengthen my technical foundation, and grow under experienced mentorship.
                   </p>
 
                   <div className="mt-5">
@@ -240,7 +236,7 @@ const AboutSection = ({ themeMode }) => {
                             d="M5 13l4 4L19 7"
                           />
                         </svg>
-                        <span>Architecting microservices solutions</span>
+                        <span>Building and maintaining RESTful APIs using Spring Boot</span>
                       </li>
                       <li className="flex items-start">
                         <svg
@@ -261,7 +257,7 @@ const AboutSection = ({ themeMode }) => {
                             d="M5 13l4 4L19 7"
                           />
                         </svg>
-                        <span>Leading backend development teams</span>
+                        <span>Designing and optimizing relational database schemas</span>
                       </li>
                       <li className="flex items-start">
                         <svg
@@ -282,7 +278,7 @@ const AboutSection = ({ themeMode }) => {
                             d="M5 13l4 4L19 7"
                           />
                         </svg>
-                        <span>Mentoring junior developers</span>
+                        <span>Writing clean, testable, and maintainable code following best practices</span>
                       </li>
                     </ul>
                   </div>
@@ -465,11 +461,11 @@ const AboutSection = ({ themeMode }) => {
               <div className="md:w-2/3">
                 <p className={`text-lg leading-relaxed ${paragraphColor} mb-6 relative`}>
                   <span className="text-4xl font-serif absolute -top-4 -left-2 opacity-20">"</span>
-                   I believe in continuous learning and hands-on experience. Every day is an opportunity to improve my skills and knowledge in software development.{' '}
+                   I believe in continuous learning and hands-on experience. Every project is an opportunity to grow my skills in software development.{' '}
                   <span className={`font-medium ${themeMode === 'dark' ? 'text-emerald-400' : 'text-emerald-600'}`}>
-                    I'm teachable, I don't know everything, and I'm not always right.
+                    I stay teachable, embrace challenges,
                   </span>{' '}
-                  My focus is on building practical applications that solve real problems while maintaining clean, efficient code.                  
+                  and focus on building practical applications that solve real problems with clean, efficient, and maintainable code.
                 </p>
 
                 <div className="mt-8 flex flex-wrap gap-4">

@@ -223,7 +223,7 @@ const HeroSection = ({ themeMode }) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.5 }}
             >
-              Experienced Backend Developer specializing in Java Spring Boot microservices and event-driven architectures. Currently freelancing and building scalable solutions with proven track record of improving system efficiency by up to 60%.
+              Junior Java Developer with hands-on experience in Spring Boot, REST APIs, and database design. I enjoy building practical, scalable solutions and am actively seeking an entry-level or internship role to grow as a software engineer.
             </motion.p>
             
             {/* Action buttons */}

@@ -2,7 +2,7 @@ const journeyData = [
   {
     id: "zero",
     title: "Zero",
-    description: "Learning fundamentals, building simple projects",
+    description: "Learning fundamentals and building simple projects",
     icon: "🌱",
     isActive: false,
     isCompleted: true,
@@ -11,38 +11,38 @@ const journeyData = [
   {
     id: "intern",
     title: "Intern",
-    description: "First professional exposure, learning team workflows",
+    description: "Gaining first professional experience and learning team workflows",
     icon: "🚀",
     isActive: false,
     isCompleted: true,
-    details: "Completed stage. Developed foundational skills through learning and experimentation. Built understanding of development workflows and basic programming concepts."
+    details: "Completed stage. Gained first professional exposure through internships. Developed foundational skills, learned team workflows, and built understanding of real development environments."
   },
   {
     id: "junior",
     title: "Junior",
-    description: "Growing independence, contributing to real projects",
+    description: "Contributing to real-world projects with growing independence",
     icon: "💻",
-    isActive: false,
-    isCompleted: true,
-    details: "Completed stage. Gained hands-on experience with real projects, learned to work independently, and developed proficiency in core technologies like Java, Spring Boot, and database management."
+    isActive: true,
+    isCompleted: false,
+    details: "Currently at this stage. Building real-world projects with growing independence, focused on backend development with hands-on experience. Improving practical skills in Java, Spring Boot, and database management."
   },
   {
     id: "intermediate",
     title: "Intermediate",
-    description: "Leading features, architecting solutions",
+    description: "Taking ownership of features, designing clean solutions, and applying best practices",
     icon: "⚙️",
-    isActive: true,
+    isActive: false,
     isCompleted: false,
-    details: "Currently at this stage. Working as a Backend Developer specializing in Java and Spring Boot microservices. Leading feature development, implementing event-driven architectures with Kafka, and designing scalable backend solutions. Experienced with database optimization and RESTful API design."
+    details: "Next goal: Taking ownership of features, designing clean and scalable solutions, and consistently applying best practices in backend development."
   },
   {
     id: "senior",
     title: "Senior",
-    description: "Architectural decisions, guiding teams",
+    description: "Architectural decisions, mentoring, and guiding development teams",
     icon: "🏆",
     isActive: false,
     isCompleted: false,
-    details: "Long-term aspiration: Making high-level architectural decisions, guiding development teams, establishing best practices, and tackling the most complex technical challenges."
+    details: "Long-term aspiration: Making high-level architectural decisions, mentoring others, guiding development teams, and tackling the most complex technical challenges."
   }
 ];
 
