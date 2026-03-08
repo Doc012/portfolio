@@ -3,7 +3,7 @@ import { SectionHeadingWithIcon } from '../common/SectionHeading';
 import ContactForm from './ContactForm';
 import SocialIcons from '../common/SocialIcons';
 import { fadeIn, staggerContainer } from '../../utils/animations';
-import resumePDF from '../../assets/SN_UPDATED.pdf';
+import resumePDF from '../../assets/S_Ngcepe_CV.pdf';
 
 const ContactSection = ({ themeMode }) => {
   // Theme-specific styles updated for emerald/teal theme
@@ -251,7 +251,7 @@ const ContactSection = ({ themeMode }) => {
             <div className="flex flex-col sm:flex-row justify-center gap-3">
               <a 
                 href={resumePDF}
-                download="Spha_Shepherd_Resume.pdf"
+                download="S_Ngcepe_CV.pdf"
                 className={`inline-flex items-center px-6 py-3 rounded-full ${resumeBtnBg} font-medium transition-all duration-300 transform hover:-translate-y-1 shadow-md hover:shadow-lg hover:shadow-emerald-500/10`}
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">

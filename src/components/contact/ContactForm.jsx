@@ -3,7 +3,7 @@ import { motion, AnimatePresence, useMotionValue } from 'framer-motion';
 import emailjs from '@emailjs/browser';
 import Button from '../common/Button';
 import { EMAIL_SERVICE } from '../../utils/constants';
-import resumePDF from '../../assets/SN_UPDATED.pdf';
+import resumePDF from '../../assets/S_Ngcepe_CV.pdf';
 
 const ContactForm = ({ themeMode }) => {
   // Existing state and refs
