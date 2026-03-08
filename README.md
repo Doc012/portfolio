@@ -6,14 +6,14 @@ A personal portfolio website showcasing my projects, skills, and professional jo
 
 ## Tech Stack
 
-- **React 19** — UI library
-- **Vite** — Build tool with HMR
-- **Tailwind CSS** — Utility-first styling
-- **Framer Motion** — Animations and transitions
-- **EmailJS** — Contact form email delivery
-- **Firebase** — Analytics and Firestore
-- **React Router** — Client-side routing
-- **React Icons** — Icon library
+- **React 19** - UI library
+- **Vite** - Build tool with HMR
+- **Tailwind CSS** - Utility-first styling
+- **Framer Motion** - Animations and transitions
+- **EmailJS** - Contact form email delivery
+- **Firebase** - Analytics and Firestore
+- **React Router** - Client-side routing
+- **React Icons** - Icon library
 
 ## Features
 
