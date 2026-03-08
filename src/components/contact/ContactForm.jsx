@@ -196,7 +196,8 @@ const ContactForm = ({ themeMode }) => {
 
       setSendStatus('success');
       setFormData({ name: '', email: '', subject: '', message: '' });
-    } catch {
+    } catch (error) {
+      console.error('EmailJS error:', error);
       setSendStatus('error');
     } finally {
       setSending(false);
