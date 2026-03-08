@@ -116,7 +116,7 @@ RepairLink streamlines the entire repair process, from discovery to booking to f
     impact: "The project combines practical technology solutions with community organizing to address a critical infrastructure challenge in a way that builds social cohesion rather than competition over scarce resources.",
     challenges: "The main challenge was designing an intuitive interface that would work for all community members regardless of technical proficiency, while ensuring the platform could effectively match those with resources to those in need based on proximity and availability.",
     learningOutcomes: "This project deepened my understanding of building applications with real social impact, balancing technical requirements with genuine community needs, and creating interfaces that work for diverse user groups.",
-    githubUrl: "", // Leave blank if private
+    githubUrl: "",
   demoUrl: "https://togetherasone.netlify.app", // Live web app
     featured: true,
     isNew: true,

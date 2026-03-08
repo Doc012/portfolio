@@ -140,7 +140,7 @@ export const AppProvider = ({ children }) => {
   const scrollToSection = (sectionId) => {
     const section = document.getElementById(sectionId);
     if (section) {
-      const navbarHeight = 80; // Adjust this to match your navbar height
+      const navbarHeight = 80; 
       const targetPosition = section.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
       
       window.scrollTo({

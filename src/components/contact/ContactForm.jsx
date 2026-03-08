@@ -1,6 +1,8 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence, useMotionValue } from 'framer-motion';
+import emailjs from '@emailjs/browser';
 import Button from '../common/Button';
+import { EMAIL_SERVICE } from '../../utils/constants';
 import resumePDF from '../../assets/SN_UPDATED.pdf';
 
 const ContactForm = ({ themeMode }) => {
@@ -12,6 +14,8 @@ const ContactForm = ({ themeMode }) => {
     message: ''
   });
   const [formErrors, setFormErrors] = useState({});
+  const [sending, setSending] = useState(false);
+  const [sendStatus, setSendStatus] = useState(null); // 'success' | 'error' | null
   const [showResumeDialog, setShowResumeDialog] = useState(false);
   const resumeViewerRef = useRef(null);
   
@@ -127,16 +131,24 @@ const ContactForm = ({ themeMode }) => {
     ? 'w-full px-4 py-2 bg-gray-700/50 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500/50 text-white placeholder-gray-400'
     : 'w-full px-4 py-2 bg-gray-100/70 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500/50 text-gray-800 placeholder-gray-400';
 
-  // Notice message styles
-  const noticeClass = themeMode === 'dark'
-    ? 'mb-6 p-4 bg-amber-800/20 border border-amber-700/30 rounded-lg text-amber-400'
-    : 'mb-6 p-4 bg-amber-50 border border-amber-200 rounded-lg text-amber-700';
+  // Status message styles
+  const successClass = themeMode === 'dark'
+    ? 'mb-6 p-4 bg-emerald-800/20 border border-emerald-700/30 rounded-lg text-emerald-400'
+    : 'mb-6 p-4 bg-emerald-50 border border-emerald-200 rounded-lg text-emerald-700';
+
+  const errorClass = themeMode === 'dark'
+    ? 'mb-6 p-4 bg-red-800/20 border border-red-700/30 rounded-lg text-red-400'
+    : 'mb-6 p-4 bg-red-50 border border-red-200 rounded-lg text-red-700';
     
   // Form validation
   const validateForm = () => {
     const errors = {};
     if (!formData.name.trim()) errors.name = "Please enter your name";
-    if (!formData.email.trim()) errors.email = "Please enter your email";
+    if (!formData.email.trim()) {
+      errors.email = "Please enter your email";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      errors.email = "Please enter a valid email address";
+    }
     if (!formData.subject.trim()) errors.subject = "Please enter a subject";
     if (!formData.message.trim()) errors.message = "Please enter your message";
     
@@ -160,26 +172,34 @@ const ContactForm = ({ themeMode }) => {
     }
   };
 
-  // Mailto link that pre-fills email fields
-  const createMailtoLink = () => {
-    // Return empty if form validation fails
-    if (!validateForm()) {
-      return '#';
-    }
-    
-    const subject = encodeURIComponent(formData.subject || 'Website Inquiry');
-    const body = encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`
-    );
-    return `mailto:sphashepherd@gmail.com?subject=${subject}&body=${body}`;
-  };
-  
-  // Handle form submission
-  const handleSubmit = (e) => {
+  // Handle form submission via EmailJS
+  const handleSubmit = async (e) => {
     e.preventDefault();
     
-    if (validateForm()) {
-      window.location.href = createMailtoLink();
+    if (!validateForm()) return;
+
+    setSending(true);
+    setSendStatus(null);
+
+    try {
+      await emailjs.send(
+        EMAIL_SERVICE.SERVICE_ID,
+        EMAIL_SERVICE.TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        },
+        EMAIL_SERVICE.USER_ID
+      );
+
+      setSendStatus('success');
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    } catch {
+      setSendStatus('error');
+    } finally {
+      setSending(false);
     }
   };
 
@@ -235,15 +255,27 @@ const ContactForm = ({ themeMode }) => {
             Get In Touch
           </h2>
 
-          {/* Notice about form - simplified for mobile */}
-          <div className={noticeClass}>
-            <div className="flex items-start">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 flex-shrink-0 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zm-1 9a1 1 0 100-2 1 1 0 000 2z" clipRule="evenodd" />
-              </svg>
-              <p className="text-sm sm:text-base">This form helps compose an email. Your default email app will open with your message.</p>
+          {/* Status messages */}
+          {sendStatus === 'success' && (
+            <div className={successClass}>
+              <div className="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 flex-shrink-0 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+                <p className="text-sm sm:text-base">Message sent successfully! I'll get back to you soon.</p>
+              </div>
             </div>
-          </div>
+          )}
+          {sendStatus === 'error' && (
+            <div className={errorClass}>
+              <div className="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 flex-shrink-0 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zm-1 9a1 1 0 100-2 1 1 0 000 2z" clipRule="evenodd" />
+                </svg>
+                <p className="text-sm sm:text-base">Failed to send message. Please try again or email me directly.</p>
+              </div>
+            </div>
+          )}
 
           {/* Make the form more mobile-friendly */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
@@ -259,7 +291,7 @@ const ContactForm = ({ themeMode }) => {
                 value={formData.name}
                 onChange={handleInputChange}
                 className={`${inputClass} ${formErrors.name ? inputErrorClass : ''}`}
-                placeholder="John Doe"
+                placeholder="Your full name"
                 required
               />
               {formErrors.name && <p className={errorTextClass}>{formErrors.name}</p>}
@@ -277,7 +309,7 @@ const ContactForm = ({ themeMode }) => {
                 value={formData.email}
                 onChange={handleInputChange}
                 className={`${inputClass} ${formErrors.email ? inputErrorClass : ''}`}
-                placeholder="john@example.com"
+                placeholder="you@email.com"
                 required
               />
               {formErrors.email && <p className={errorTextClass}>{formErrors.email}</p>}
@@ -314,7 +346,7 @@ const ContactForm = ({ themeMode }) => {
               onChange={handleInputChange}
               rows={5}
               className={`${inputClass} ${formErrors.message ? inputErrorClass : ''}`}
-              placeholder="Your message here..."
+              placeholder="Write your message here..."
               required
             />
             {formErrors.message && <p className={errorTextClass}>{formErrors.message}</p>}
@@ -327,14 +359,22 @@ const ContactForm = ({ themeMode }) => {
             size="lg"
             fullWidth
             themeMode={themeMode}
+            disabled={sending}
             icon={
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-              </svg>
+              sending ? (
+                <svg className="animate-spin h-5 w-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+              ) : (
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                  <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                </svg>
+              )
             }
           >
-            Send Message
+            {sending ? 'Sending...' : 'Send Message'}
           </Button>
           
           {/* Direct contact info - improved for mobile */}

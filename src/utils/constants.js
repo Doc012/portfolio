@@ -36,10 +36,10 @@ export const SOCIAL_LINKS = [
 
 // Contact form fields
 export const CONTACT_FORM_FIELDS = [
-  { name: 'name', label: 'Full Name', type: 'text', placeholder: 'John Doe', required: true },
-  { name: 'email', label: 'Email Address', type: 'email', placeholder: 'john@example.com', required: true },
-  { name: 'subject', label: 'Subject', type: 'text', placeholder: 'Job Opportunity', required: true },
-  { name: 'message', label: 'Message', type: 'textarea', placeholder: 'I would like to discuss...', required: true },
+  { name: 'name', label: 'Full Name', type: 'text', placeholder: 'Your full name', required: true },
+  { name: 'email', label: 'Email Address', type: 'email', placeholder: 'you@email.com', required: true },
+  { name: 'subject', label: 'Subject', type: 'text', placeholder: 'What is this regarding?', required: true },
+  { name: 'message', label: 'Message', type: 'textarea', placeholder: 'Write your message here...', required: true },
 ];
 
 // Site metadata
@@ -47,8 +47,8 @@ export const SITE_METADATA = {
   title: 'Siphamandla Ngcepe - Software Developer Portfolio',
   description: 'Siphamandla Ngcepe is an aspiring full-stack Java developer showcasing projects, skills, and professional journey.',
   author: 'Siphamandla Ngcepe',
-  siteUrl: 'https://your-portfolio-url.com',
-  twitterHandle: '@yourtwitterhandle',
+  siteUrl: 'https://portfolio-url.com',
+  twitterHandle: '@twitterhandle',
   keywords: 'Java Developer, Full Stack Developer, Web Developer, Portfolio, React, Spring Boot'
 };
 
@@ -125,9 +125,11 @@ export const ROUTES = {
   NOT_FOUND: '/404'
 };
 
-// Email service keys (replace with your actual service)
+// Email service keys
 export const EMAIL_SERVICE = {
-  SERVICE_ID: 'YOUR_SERVICE_ID',
-  TEMPLATE_ID: 'YOUR_TEMPLATE_ID',
-  USER_ID: 'YOUR_USER_ID'
+  SERVICE_ID: import.meta.env.VITE_EMAILJS_SERVICE_ID,
+  TEMPLATE_ID: import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+  USER_ID: import.meta.env.VITE_EMAILJS_USER_ID
 };
+
+
